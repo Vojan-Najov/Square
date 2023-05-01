@@ -1,2 +1,3 @@
-# Squere
-The program of drawing a square. OpenGL, Fixed-function pipeline.
+# SquareBrush
+
+The program of drawing by square brush.

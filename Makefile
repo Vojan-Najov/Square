@@ -1,4 +1,4 @@
-NAME = square
+NAME = SquareBrush
 
 CC = gcc
 PKG-CONFIG = $(shell which pkg-config)
@@ -10,10 +10,10 @@ CFLAGS_GLUT = $(shell $(PKG-CONFIG) --cflags glut)
 LIBS = -lGL
 LIBS_GLUT = $(shell $(PKG-CONFIG) --libs glut)
 
-$(NAME): square.o
+$(NAME): square_brush.o
 	$(CC) $? -o $@ $(LIBS_GLUT) $(LIBS) 
 
-square.o: square.c
+square.o: square_brush.c
 	$(CC) $(CFLAGS) $(CFLAGS_GLUT) $? -c $@
 
 clean:

@@ -1,6 +1,7 @@
 #include <GL/glut.h>
 #include <stdlib.h>
 
+static void demoMenu(int id);
 static void myInit(void);
 static void myReshape(int x, int y);
 static void mouse(int btn, int state, int x, int y);
@@ -16,7 +17,13 @@ int main(int argc, char **argv)
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(wh, ww);
-	glutCreateWindow("square");
+	glutCreateWindow("Square Brush");
+
+	glutCreateMenu(demoMenu);
+	glutAddMenuEntry("increase square size", 1);
+	glutAddMenuEntry("decrease square size", 2);
+	glutAddMenuEntry("clean", 3);
+	glutAttachMenu(GLUT_RIGHT_BUTTON);
 
 	myInit();
 
@@ -27,6 +34,19 @@ int main(int argc, char **argv)
 	glutDisplayFunc(display);
 
 	glutMainLoop();
+}
+
+static void demoMenu(int id)
+{
+	if (id == 1) {
+		size *= 2.0;
+	} else if (id == 2 && size > 1.0) {
+		size /= 2.0;
+	} else {
+		glClearColor(0.0, 0.0, 0.0, 0.0);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glFlush();
+	}
 }
 
 static void myInit(void)
