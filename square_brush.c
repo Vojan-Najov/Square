@@ -10,7 +10,7 @@ static void display(void);
 static void drawSquare(int x, int y);
 
 GLsizei wh = 500, ww = 500;
-GLfloat size = 3.0;
+GLfloat size = 2.0;
 
 int main(int argc, char **argv)
 {
